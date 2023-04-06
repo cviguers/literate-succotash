@@ -29,34 +29,34 @@ const questions = [
       type: "input",
       name: "description",
       message:
-        "Provide a short description explaining the what, why, and how of your project.",
+        "Description: Provide a short description explaining the what, why, and how of your project.",
     },
     {
       type: "input",
       name: "installation",
       message:
-        "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.",
+        "Installation: What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.",
     },
     {
       type: "input",
       name: "usage",
       message:
-        "Provide instructions and examples for use. Include screenshots as needed.",
+        "Usage: Provide instructions and examples for use. Included screenshots as needed.",
     },
     {
       type: "input",
       name: "contributing",
       message:
-        "If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.",
+        "Contributing: If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.",
     },
     {
       type: "input",
       name: "tests",
       message:
-        "Go the extra mile and write tests for your application. Then provide examples on how to run them here.",
+        "Testing: Go the extra mile and write tests for your application. Then provide examples on how to run them here.",
     },
     {
-      type: "checkbox",
+      type: "list",
       name: "license",
       message: "Choose a license.",
       choices: [
@@ -70,11 +70,24 @@ const questions = [
     },
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// use fs method to write file using collected data
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (err) =>
+  err ? console.log(err) : console.log("Successfully created README.md"));
+}
 
-// TODO: Create a function to initialize app
-function init() {}
 
-// Function call to initialize app
+// function to initialize app
+function init() {
+    // from the inquirer package, uses the prompt method to ask the user the questions array
+    inquirer
+      .prompt(questions)
+      // arrow function takes user responses, calls writeToFile, creating the new document in /product
+      .then((data) => {
+          console.log("Creating README.md file...");
+          writeToFile('./product/README.md',generateMarkdown(data))
+      });
+}
+
+// function call to initialize app
 init();
