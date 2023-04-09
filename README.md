@@ -22,6 +22,10 @@ Clone the repository from my github, download node.js and import fs and inquirer
 
 To start, run `node index.js` in the root folder of the project. Proceed through prompt of questions. Look to /product folder for the final README.md file. For a walkthrough video, visit: https://drive.google.com/file/d/1089sSwDW8NUjYQFHj5IQiGJrHMupzh8Z/view
 
+<img src="./assets/images/node.png"/>
+
+<img src="./assets/images/product.png"/>
+
 ## License
 
 Licensed under the MIT license. For more information, visit: https://opensource.org/licenses/MIT
