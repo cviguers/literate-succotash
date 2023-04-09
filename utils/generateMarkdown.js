@@ -26,15 +26,15 @@ const renderLicenseLink = (data) => {
   let chosenLicense = ""
 
   if (licenseOption === 'MIT') {
-    chosenLicense = `[click here](https://opensource.org/licenses/MIT)`;
+    chosenLicense = `(https://opensource.org/licenses/MIT)`;
   } else if (licenseOption === 'GNU AGPLv3') {
-    chosenLicense = `[click here](https://www.gnu.org/licenses/agpl-3.0)`;
+    chosenLicense = `(https://www.gnu.org/licenses/agpl-3.0)`;
   } else if (licenseOption === 'Mozilla Public License 2.0') {
-    chosenLicense = `[click here](https://opensource.org/licenses/MPL-2.0)`;
+    chosenLicense = `(https://opensource.org/licenses/MPL-2.0)`;
   } else if (licenseOption === 'Boost Software License 1.0') {
-    chosenLicense = `[click here](https://www.boost.org/LICENSE_1_0.txt)`;
+    chosenLicense = `(https://www.boost.org/LICENSE_1_0.txt)`;
   } else if (licenseOption === 'Apache License 2.0') {
-    chosenLicense = `[click here](https://opensource.org/licenses/Apache-2.0)`;
+    chosenLicense = `(https://opensource.org/licenses/Apache-2.0)`;
   } else {
     chosenLicense = "";
   }
@@ -50,7 +50,6 @@ const renderLicenseSection = (data) => {
   if (licenseOption !== "None") {
     chosenLicense =
     `
-    # License
     Licensed under the ${licenseOption} license. For more information, visit: ${renderLicenseLink(data)}
     `;
   } else {
@@ -76,7 +75,8 @@ const generateMarkdown = (data) =>
   ${data.installation}
   ## Usage
   ${data.usage}
-  ${renderLicenseSection(data.license)} 
+  ## License
+  ${renderLicenseSection(data)} 
   ## How to Contribute
   ${data.contributing}
   ## Tests
