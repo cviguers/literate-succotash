@@ -82,6 +82,6 @@ const generateMarkdown = (data) =>
   ## Tests
   ${data.tests}
   ## Questions
-  If you have any additional questions, please contact me at ${data.email} or https://github.com/${data.github}`;
+  If you have any additional questions, please contact ${data.name} at ${data.email} or https://github.com/${data.github}`;
 
 module.exports = generateMarkdown;
